@@ -19,3 +19,6 @@ npm run dev
 
 * RainbowKit
 * shadcn
+
+## Truc a faire
+**https://www.notion.so/Dev-1153104def5a8052bd3bdc5e51984b53?pvs=4**
