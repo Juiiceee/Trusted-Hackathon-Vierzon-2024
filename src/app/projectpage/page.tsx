@@ -95,7 +95,7 @@ export default function DonationMarketplace() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">Nos projets caritatifsa</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">Nos projets caritatives</h1>
       
       {/* Barre de recherche */}
       <div className="mb-8">

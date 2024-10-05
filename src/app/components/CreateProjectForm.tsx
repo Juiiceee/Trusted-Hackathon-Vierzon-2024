@@ -12,6 +12,7 @@ interface CreateProjectFormProps {
     projectDescription: string;
     projectQuote: string;
     projectAmount: string;
+    localisation: string;
     limitDate: string;
     selectedCompanies: { companyName: string, requestAmount: string }[];
     projectImage: File | null;
@@ -23,6 +24,7 @@ export default function CreateProjectForm({ companies, onSubmit }: CreateProject
   const [projectName, setProjectName] = useState('');
   const [projectDescription, setProjectDescription] = useState('');
   const [projectAmount, setProjectAmount] = useState('');
+  const [localisation, setLocalisation] = useState('');
   const [limitDate, setLimitDate] = useState('');
   const [selectedCompanies, setSelectedCompanies] = useState<{ companyName: string; requestAmount: string }[]>([]);
   const [projectImage, setProjectImage] = useState<File | null>(null); // Fichier image
@@ -50,6 +52,7 @@ export default function CreateProjectForm({ companies, onSubmit }: CreateProject
       projectDescription,
       projectQuote: 'Devis attaché', // Valeur fictive si devis n'est pas défini comme texte
       projectAmount,
+      localisation,
       limitDate,
       selectedCompanies,
       projectImage,
@@ -59,6 +62,7 @@ export default function CreateProjectForm({ companies, onSubmit }: CreateProject
     setProjectName('');
     setProjectDescription('');
     setProjectAmount('');
+    setLocalisation('');
     setLimitDate('');
     setSelectedCompanies([]);
     setProjectImage(null);
@@ -98,7 +102,16 @@ export default function CreateProjectForm({ companies, onSubmit }: CreateProject
           required
         />
       </div>
-
+      <div>
+        <label className="block text-sm font-medium">Localisation</label>
+        <input
+          type="number"
+          value={projectAmount}
+          onChange={(e) => setLocalisation(e.target.value)}
+          className="w-full p-2 border rounded"
+          required
+        />
+      </div>
       <div>
         <label className="block text-sm font-medium">Date limite</label>
         <input
