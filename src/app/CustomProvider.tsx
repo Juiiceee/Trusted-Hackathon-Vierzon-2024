@@ -6,14 +6,8 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { WagmiProvider } from 'wagmi';
 import {
-	mainnet,
-	polygon,
-	optimism,
-	arbitrum,
-	base,
 	anvil,
 	avalancheFuji,
-	sepolia
 } from 'wagmi/chains';
 import {
 	QueryClientProvider,
@@ -24,7 +18,7 @@ import React from 'react';
 const config = getDefaultConfig({
 	appName: 'My RainbowKit App',
 	projectId: 'd8fb0d4c1c6aa1899c65cda0827d98a1',
-	chains: [mainnet, arbitrum, anvil, sepolia,avalancheFuji],
+	chains: [anvil, avalancheFuji],
 	ssr: true,
 });
 
