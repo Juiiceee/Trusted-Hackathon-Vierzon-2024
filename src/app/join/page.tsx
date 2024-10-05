@@ -4,11 +4,6 @@ import { useState } from 'react';
 import CreateCompanyForm from '../components/CreateCompanyForm'; // Formulaire d'entreprise
 import CreateProjectForm from '../components/CreateProjectForm'; // Formulaire de projet
 
-const companiesMock = [
-	// Liste d'exemple d'entreprises enregistrées, à remplacer par des données réelles
-	{ companyName: 'Entreprise A', companySiren: '123456789', companyAddress: '0x123' },
-	{ companyName: 'Entreprise B', companySiren: '987654321', companyAddress: '0x456' },
-];
 
 export default function Home() {
 	const [activeTab, setActiveTab] = useState('entreprise');
