@@ -7,8 +7,8 @@ import { Button } from './Button'; // Si le bouton est aussi dans "components"
 
 interface ProjectCardProps {
   nom: string;
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
   poolAddress: string;
   goal: number;
   raised: number;
