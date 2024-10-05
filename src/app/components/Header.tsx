@@ -2,7 +2,6 @@ import React from "react";
 import Connect from "../components/Connect"; // Assurez-vous que le chemin est correct
 
 export default function Header() {
-  // Styles du logo Trusted
   const logoStyles = {
     fontFamily: "Poppins, sans-serif",
     fontSize: "40px",
