@@ -1,6 +1,7 @@
 // src/app/layout.tsx
 import CustomProvider from "./CustomProvider";
-import Header from "./components/Header"; // Assurez-vous que le chemin est correct
+import Header from "./components/Header"; 
+import Footer from "./components/Footer";// Assurez-vous que le chemin est correct
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -37,6 +38,7 @@ export default function RootLayout({
             {children}
           </main>
         </CustomProvider>
+        <Footer />
       </body>
     </html>
   );
