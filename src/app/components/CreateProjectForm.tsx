@@ -32,6 +32,19 @@ export default function CreateProjectForm({ companies, onSubmit }: CreateProject
   const [projectImage, setProjectImage] = useState<File | null>(null); 
   const [projectDevis, setProjectDevis] = useState<File | null>(null); 
 
+  const addCompany = () => {
+    setSelectedCompanies([...selectedCompanies, { companyName: '', requestAmount: '' }]);
+  };
+
+  const handleCompanyChange = (index: number, field: string, value: string) => {
+    const updatedCompanies = [...selectedCompanies];
+    updatedCompanies[index] = {
+      ...updatedCompanies[index],
+      [field]: value,
+    };
+    setSelectedCompanies(updatedCompanies);
+  };
+
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     onSubmit({
@@ -92,33 +105,25 @@ export default function CreateProjectForm({ companies, onSubmit }: CreateProject
         />
       </div>
 
-      {/* Latitude and Longitude inputs with constraints */}
+      {/* Latitude and Longitude inputs */}
       <div>
-        <label className="block text-sm font-medium">Latitude (entre -90 et 90)</label>
+        <label className="block text-sm font-medium">Latitude</label>
         <input
-          type="number"
+          type="text"
           value={latitude}
           onChange={(e) => setLatitude(e.target.value)}
-          min="-90"
-          max="90"
-          step="0.000001"
           className="w-full p-2 border rounded"
-          placeholder="Ex: 48.8566"
           required
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium">Longitude (entre -180 et 180)</label>
+        <label className="block text-sm font-medium">Longitude</label>
         <input
-          type="number"
+          type="text"
           value={longitude}
           onChange={(e) => setLongitude(e.target.value)}
-          min="-180"
-          max="180"
-          step="0.000001"
           className="w-full p-2 border rounded"
-          placeholder="Ex: 2.3522"
           required
         />
       </div>
