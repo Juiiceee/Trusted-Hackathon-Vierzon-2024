@@ -8,7 +8,7 @@ export default function CreateCompanyForm() {
 	const [amount, setAmount] = useState(0);
 	const [companySiren, setCompanySiren] = useState(0);
 	const [companyAddress, setCompanyAddress] = useState('');
-	const {address} = useAccount();
+	const { address } = useAccount();
 
 	const { data: hash, isPending, error, writeContract } = useWriteContract();
 
