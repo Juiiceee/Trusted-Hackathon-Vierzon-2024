@@ -15,9 +15,9 @@ export default function Home() {
   const [companies, setCompanies] = useState(companiesMock); // Entreprises enregistrées
   
   // Gestion de la soumission des formulaires
-  const handleCompanySubmit = (newCompany: { companyName: string; companySiren: string; companyAddress: string; }) => {
-    setCompanies([...companies, newCompany]);
-    alert('Entreprise créée avec succès !');
+  const handleCompanySubmit = (newCompany: { companyName: string; companySiren: number; companyAddress: string; }) => {
+    // setCompanies([...companies, newCompany]);
+    // alert('Entreprise créée avec succès !');
   };    
 
   const handleProjectSubmit = (newProject: any) => {
