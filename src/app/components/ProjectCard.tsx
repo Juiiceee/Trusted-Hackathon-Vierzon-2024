@@ -1,4 +1,3 @@
-// src/components/ProjectCard.tsx
 'use client';
 
 import { useState } from 'react';
@@ -7,31 +6,33 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { Button } from './Button'; // Si le bouton est aussi dans "components"
 
 interface ProjectCardProps {
-	association: string;
-	location: string;
-	poolAddress: string;
-	goal: number;
-	raised: number;
-	recentDonors: string[];
-	donationAmount: number;
-	donationValue: string;
-	imageUrl: string;
-	title: string;
-	tag: string;
+  nom: string;
+  latitude: string;
+  longitude: string;
+  poolAddress: string;
+  goal: number;
+  raised: number;
+  recentDonors: string[];
+  donationAmount: number;
+  donationValue: string;
+  imageUrl: string;
+  description: string;
+  tag: string;
 }
 
 export default function ProjectCard({
-	association,
-	location,
-	poolAddress,
-	goal,
-	raised,
-	recentDonors,
-	donationAmount,
-	donationValue,
-	imageUrl,
-	title,
-	tag,
+  nom,
+  latitude,
+  longitude,
+  poolAddress,
+  goal,
+  raised,
+  recentDonors,
+  donationAmount,
+  donationValue,
+  imageUrl,
+  description,
+  tag,
 }: ProjectCardProps) {
 	const [donationInput, setDonationInput] = useState('0.0');
 
@@ -51,27 +52,29 @@ export default function ProjectCard({
 			</div>
 			<div className="p-4">
 				<div className="flex justify-between items-center mb-4">
-					<h3 className="font-bold text-lg">{association}</h3>
+					<h3 className="font-bold text-lg">{nom}</h3>
 					<span className="bg-purple-100 text-purple-600 text-xs px-3 py-1 rounded-full">
 						{tag}
 					</span>
 				</div>
 
-				<div className="mb-4">
-					<h4 className="text-lg font-semibold mb-2">{title}</h4>
-					<div className="flex items-center mb-2">
-						<Image src="/images/wallet.png" alt="Wallet Icon" width={20} height={20} />
-						<span className="ml-2 text-sm text-gray-600">{poolAddress}</span>
-					</div>
-					<div className="flex items-center mb-2">
-						<Image src="/images/id-solid.png" alt="Location Icon" width={20} height={20} />
-						<span className="ml-2 text-sm text-gray-600">{location}</span>
-					</div>
-					<div className="flex items-center mb-4">
-						<Image src="/images/ava.png" alt="Avalanche Icon" width={30} height={30} />
-						<span className="ml-2 font-bold text-lg">{donationAmount} AVAX</span>
-						<span className="ml-2 text-sm text-gray-500">({donationValue})</span>
-					</div>
+        <div className="mb-4">
+          <h4 className="text-lg font-semibold mb-2">{description}</h4>
+          <div className="flex items-center mb-2">
+            <Image src="/images/wallet.png" alt="Wallet Icon" width={20} height={20} />
+            <span className="ml-2 text-sm text-gray-600">{poolAddress}</span>
+          </div>
+          <div className="flex items-center mb-2">
+            <Image src="/images/id-solid.png" alt="Location Icon" width={20} height={20} />
+            <span className="ml-2 text-sm text-gray-600">
+              Latitude: {latitude}, Longitude: {longitude}
+            </span>
+          </div>
+          <div className="flex items-center mb-4">
+            <Image src="/images/ava.png" alt="Avalanche Icon" width={30} height={30} />
+            <span className="ml-2 font-bold text-lg">{donationAmount} AVAX</span>
+            <span className="ml-2 text-sm text-gray-500">({donationValue})</span>
+          </div>
 
 					{/* Button to open the modal */}
 					<Dialog.Root>
