@@ -1,12 +1,10 @@
-// src/pages/index.tsx (ou src/app/site/page.tsx)
 import Image from 'next/image';
 import { Button } from "../components/Button";
-import ProjectCard from '../components/ProjectCard'; // Import du composant ProjectCard
+import ProjectCard from '../components/ProjectCard'; 
 
 export default function SitePage() {
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
-      {/* Hero Section */}
       <section className="relative h-screen">
         <div className="container mx-auto px-4 h-full flex items-center">
           <div className="w-full md:w-1/2 space-y-6 z-10">
@@ -29,8 +27,6 @@ export default function SitePage() {
             </div>
           </div>
         </div>
-        
-        {/* Frame31 background image */}
         <div className="absolute right-0 top-[332px] w-[1425px] h-[546px] z-0">
           <Image
             src="/images/Frame31.png"
@@ -40,8 +36,6 @@ export default function SitePage() {
             quality={100}
           />
         </div>
-        
-        {/* Group1 image */}
         <div className="absolute right-[10%] lg:right-[10%] top-[20%] w-[500px] h-[471px] z-20">
           <Image
             src="/images/Group1.png"
@@ -52,14 +46,13 @@ export default function SitePage() {
         </div>
       </section>
 
-      {/* Project Cards Section */}
       <section className="py-[1%] bg-white-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-[2%] text-center">Ils ont besoin de vous</h2>
           <h2 className="text-3xl font-bold mb-[5%] text-center">Projets en cours</h2>
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 my-30">
-              {/* Première carte */}
+
               <ProjectCard
                 association="Association 1"
                 location="99 Rte de M, 72530 Yvre l'Eveque"
@@ -74,7 +67,7 @@ export default function SitePage() {
                 tag="Construire une école"
               />
 
-              {/* Deuxième carte */}
+
               <ProjectCard
                 association="Association 2"
                 location="75 Rue de la République, 75000 Paris"
@@ -89,7 +82,7 @@ export default function SitePage() {
                 tag="Construire une école"
               />
 
-              {/* Troisième carte */}
+
               <ProjectCard
                 association="Association 3"
                 location="23 Boulevard des Capucines, 75009 Paris"
@@ -122,6 +115,22 @@ export default function SitePage() {
           </div>
         </div>
       </section>
-    </div>
+
+      {/* Ajout des deux images superposées, avec largeur de 70% */}
+      <div className="relative w-[70%] h-[400px] mx-auto">
+        <div className="absolute mt-11">
+          <Image
+            src="/images/Frame49.png" // Chemin vers ton image transparente
+            alt="Overlay image"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
+
+        </div>
+      </div>
   );
 }
+
+
+
