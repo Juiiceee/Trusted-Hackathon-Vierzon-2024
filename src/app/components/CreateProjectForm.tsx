@@ -191,7 +191,7 @@ export default function CreateProjectForm() {
 					className="w-full p-2 border rounded"
 				/>
 				<span>{ipfsHash}</span>
-				<Button onClick={handleUploadImage} type='primary' disabled={!selectedFile ? true : false} loading={processing || !ipfsHash ? true : false}>Upload to Pinata</Button>
+				<Button onClick={handleUploadImage} type='primary' disabled={!selectedFile ? true : false} loading={processing && !ipfsHash ? true : false}>Upload to Pinata</Button>
 			</div>
 
 			<div>
@@ -203,7 +203,7 @@ export default function CreateProjectForm() {
 					className="w-full p-2 border rounded"
 				/>
 				<span>{ipfsDevis}</span>
-				<Button onClick={handleUploadDevis} type='primary' disabled={!selectedFilePDF ? true : false} loading={processing || !ipfsHash ? true : false}>Upload to Pinata</Button>
+				<Button onClick={handleUploadDevis} type='primary' disabled={!selectedFilePDF ? true : false} loading={processing && !ipfsHash ? true : false}>Upload to Pinata</Button>
 			</div>
 
 			<Button type="primary" onClick={putNumber} className="px-4 py-2 bg-green-500 text-white rounded mt-4">

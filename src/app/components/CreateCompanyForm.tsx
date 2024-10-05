@@ -3,29 +3,12 @@ import { useState } from 'react';
 import { contractAddressFactory, contractABIFactory } from '../constants/factory';
 import { useAccount, useReadContract, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 
-interface CreateCompanyFormProps {
-	onSubmit: (data: { companyName: string; companySiren: number; amount: number; companyAddress: string }) => void;
-}
-
-export default function CreateCompanyForm({ onSubmit }: CreateCompanyFormProps) {
+export default function CreateCompanyForm() {
 	const [companyName, setCompanyName] = useState('');
 	const [amount, setAmount] = useState(0);
 	const [companySiren, setCompanySiren] = useState(0);
 	const [companyAddress, setCompanyAddress] = useState('');
 	const {address} = useAccount();
-	const handleSubmit = (e: { preventDefault: () => void; }) => {
-		e.preventDefault();
-		onSubmit({
-			companyName,
-			companySiren,
-			amount,
-			companyAddress,
-		});
-		setCompanyName('');
-		setCompanySiren(0);
-		setAmount(0);
-		setCompanyAddress('');
-	};
 
 	const { data: hash, isPending, error, writeContract } = useWriteContract();
 
@@ -40,7 +23,6 @@ export default function CreateCompanyForm({ onSubmit }: CreateCompanyFormProps) 
 	}
 
 	return (
-		//<form onSubmit={handleSubmit} className="space-y-4">
 		<div>
 			<div>
 				<label className="block text-sm font-medium">Nom de l'entreprise</label>
@@ -89,7 +71,6 @@ export default function CreateCompanyForm({ onSubmit }: CreateCompanyFormProps) 
 			<button type="submit" onClick={putNumber} className="px-4 py-2 bg-blue-500 text-white rounded">
 				Créer l'entreprise
 			</button>
-		{/* </form> */}
 		</div>
 	);
 }

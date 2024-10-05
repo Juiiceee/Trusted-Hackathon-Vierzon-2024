@@ -11,19 +11,7 @@ const companiesMock = [
 ];
 
 export default function Home() {
-	const [activeTab, setActiveTab] = useState('entreprise'); // Tab actif
-	const [companies, setCompanies] = useState(companiesMock); // Entreprises enregistrées
-
-	// Gestion de la soumission des formulaires
-	const handleCompanySubmit = (newCompany: { companyName: string; companySiren: number; companyAddress: string; }) => {
-		// setCompanies([...companies, newCompany]);
-		// alert('Entreprise créée avec succès !');
-	};
-
-	const handleProjectSubmit = (newProject: any) => {
-		console.log('Projet soumis :', newProject);
-		alert('Projet soumis avec succès !');
-	};
+	const [activeTab, setActiveTab] = useState('entreprise');
 
 	return (
 		<div className="min-h-screen bg-gray-100 p-10">
@@ -51,7 +39,7 @@ export default function Home() {
 				{/* Contenu des onglets */}
 				<div className="p-6 bg-white shadow-md rounded-b-lg">
 					{activeTab === 'entreprise' && (
-						<CreateCompanyForm onSubmit={handleCompanySubmit} />
+						<CreateCompanyForm />
 					)}
 					{activeTab === 'projet' && (
 						<CreateProjectForm />
