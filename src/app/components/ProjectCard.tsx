@@ -1,6 +1,10 @@
 // src/components/ProjectCard.tsx
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
-import { Button } from "./Button"; // Si le bouton est aussi dans "components"
+import * as Dialog from '@radix-ui/react-dialog';
+import { Button } from './Button'; // Si le bouton est aussi dans "components"
 
 interface ProjectCardProps {
   association: string;
@@ -29,7 +33,11 @@ export default function ProjectCard({
   title,
   tag,
 }: ProjectCardProps) {
-  const progress = (raised / goal) * 100;
+  const [donationInput, setDonationInput] = useState('0.0');
+
+  const handleDonation = () => {
+    console.log(`Don de ${donationInput} AVAX soumis`);
+  };
 
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-md p-4 border border-purple-300">
@@ -65,9 +73,40 @@ export default function ProjectCard({
             <span className="ml-2 text-sm text-gray-500">({donationValue})</span>
           </div>
 
-          <Button className="w-full bg-black text-white hover:bg-gray-800 mb-4">
-            Faire un don
-          </Button>
+          {/* Button to open the modal */}
+          <Dialog.Root>
+            <Dialog.Trigger asChild>
+              <Button className="w-full bg-black text-white hover:bg-gray-800 mb-4">
+                Faire un don
+              </Button>
+            </Dialog.Trigger>
+
+            {/* Modal Dialog */}
+            <Dialog.Portal>
+              <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-30" />
+              <Dialog.Content className="fixed top-1/2 left-1/2 w-full max-w-md p-6 bg-white rounded-lg shadow-lg transform -translate-x-1/2 -translate-y-1/2">
+                <Dialog.Title className="text-lg font-bold mb-4">Faire un don</Dialog.Title>
+                <div className="flex items-center gap-4 mb-4">
+                  <Image src="/images/ava.png" alt="Avalanche Icon" width={30} height={30} />
+                  <input
+                    type="number"
+                    value={donationInput}
+                    onChange={(e) => setDonationInput(e.target.value)}
+                    placeholder="0.0"
+                    className="w-full px-3 py-2 text-gray-700 border rounded-lg focus:outline-none"
+                  />
+                  <span className="text-sm text-gray-500">AVAX</span>
+                </div>
+
+                <div className="flex justify-end gap-2">
+                  <Dialog.Close asChild>
+                    <Button variant="outline">Annuler</Button>
+                  </Dialog.Close>
+                  <Button onClick={handleDonation}>Valider le don</Button>
+                </div>
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
 
           <div className="flex justify-between items-center mb-4">
             <span className="text-sm text-gray-600">Récents donateurs:</span>
