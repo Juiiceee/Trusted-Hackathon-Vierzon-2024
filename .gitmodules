@@ -1,0 +1,3 @@
+[submodule "AvarBlockchain"]
+	path = AvarBlockchain
+	url = https://github.com/Juiiceee/AvarBlockchain
