@@ -55,7 +55,7 @@ export default function Header() {
         <a href="#join" style={navLinkStyles}>
           Nous rejoindre
         </a>
-        <a href="#projectpage" style={navLinkStyles}>
+        <a href="projectpage" style={navLinkStyles}>
           Notre projet
         </a>
       </nav>
