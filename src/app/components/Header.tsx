@@ -52,10 +52,10 @@ export default function Header() {
 
       {/* Liens au centre */}
       <nav style={{ display: "flex", alignItems: "center" }}>
-        <a href="#join" style={navLinkStyles}>
+        <a href="join" style={navLinkStyles}>
           Nous rejoindre
         </a>
-        <a href="#project" style={navLinkStyles}>
+        <a href="projectpage" style={navLinkStyles}>
           Notre projet
         </a>
       </nav>
