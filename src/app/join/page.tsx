@@ -54,7 +54,7 @@ export default function Home() {
 						<CreateCompanyForm onSubmit={handleCompanySubmit} />
 					)}
 					{activeTab === 'projet' && (
-						<CreateProjectForm companies={companies} onSubmit={handleProjectSubmit} />
+						<CreateProjectForm />
 					)}
 				</div>
 			</div>
