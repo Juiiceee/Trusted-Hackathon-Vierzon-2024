@@ -2,7 +2,6 @@ import React from "react";
 import Connect from "../components/Connect"; // Assurez-vous que le chemin est correct
 
 export default function Header() {
-  // Styles du logo Trusted
   const logoStyles = {
     fontFamily: "Poppins, sans-serif",
     fontSize: "40px",
@@ -52,7 +51,7 @@ export default function Header() {
 
       {/* Liens au centre */}
       <nav style={{ display: "flex", alignItems: "center" }}>
-        <a href="#join" style={navLinkStyles}>
+        <a href="join" style={navLinkStyles}>
           Nous rejoindre
         </a>
         <a href="projectpage" style={navLinkStyles}>
