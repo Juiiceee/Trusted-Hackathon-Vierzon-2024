@@ -87,6 +87,13 @@ export default function ProjectCard({
           <p>{latitude}, {longitude}</p>
         </div>
 
+        {/* Lien vers le contrat */}
+        <div className="mb-4 text-gray-600">
+          <a href={`https://etherscan.io/address/${poolAddress}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            Lien vers le contrat
+          </a>
+        </div>
+
         {/* Description du projet */}
         <p className="text-gray-700 mb-4">{description}</p>
 
@@ -126,7 +133,11 @@ export default function ProjectCard({
               <li key={index}>{donor}</li>
             ))}
           </ul>
-          <a href="#" className="text-purple-600 mt-2 inline-block">Afficher tous les donateurs</a>
+
+          {/* Lien vers les détails */}
+          <a href="/details" className="text-blue-600 hover:underline mt-2 inline-block">
+            Voir détails de la page
+          </a>
         </div>
       </div>
     </div>
