@@ -15,10 +15,12 @@ import {
 } from "@tanstack/react-query";
 import React from 'react';
 
+import {Trusted} from '@/app/constants/chain';
+
 const config = getDefaultConfig({
 	appName: 'My RainbowKit App',
 	projectId: 'd8fb0d4c1c6aa1899c65cda0827d98a1',
-	chains: [anvil, avalancheFuji],
+	chains: [anvil, avalancheFuji, Trusted],
 	ssr: true,
 });
 
