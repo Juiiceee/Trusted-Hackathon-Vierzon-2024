@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from './Button';
 
 interface Company {
   companySiren: string;
@@ -206,9 +207,9 @@ export default function CreateProjectForm({ companies, onSubmit }: CreateProject
         </button>
       </div>
 
-      <button type="submit" className="px-4 py-3 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600">
-        Soumettre le projet
-      </button>
+      <Button className="bg-black text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors border-2 border-transparent hover:border-purple-500">
+              Faire un don
+      </Button>
     </form>
   );
 }

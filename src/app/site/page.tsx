@@ -1,8 +1,16 @@
+'use client';
 import Image from 'next/image';
 import { Button } from "../components/Button";
 import ProjectCard from '../components/ProjectCard'; 
 
 export default function SitePage() {
+  const handleScroll = () => {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       <section className="relative h-screen">
@@ -15,7 +23,11 @@ export default function SitePage() {
             <p className="text-3xl md:text-5xl font-bold leading-tight">
               propulsée par la technologie blockchain
             </p>
-            <Button className="bg-black text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors border-2 border-transparent hover:border-purple-500">
+            {/* Bouton avec onClick pour défiler jusqu'à la section "Ils ont besoin de vous" */}
+            <Button
+              onClick={handleScroll}
+              className="bg-black text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors border-2 border-transparent hover:border-purple-500"
+            >
               Faire un don
             </Button>
             <div className="flex flex-wrap gap-2 mt-4">
@@ -46,7 +58,8 @@ export default function SitePage() {
         </div>
       </section>
 
-      <section className="py-[1%] bg-white-100">
+      {/* Ajout de l'id "projects" pour cibler cette section pour le scroll */}
+      <section id="projects" className="py-[1%] bg-white-100">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-[2%] text-center">Ils ont besoin de vous</h2>
           <h2 className="text-3xl font-bold mb-[5%] text-center">Projets en cours</h2>
@@ -66,7 +79,7 @@ export default function SitePage() {
                 imageUrl="/images/exemple.png"
                 description="Construction d'une école pour des enfants défavorisés"
                 tag="Construire une école"
-                status="En cours"  // Ajout du statut
+                status="En cours"
               />
 
               <ProjectCard
@@ -82,7 +95,7 @@ export default function SitePage() {
                 imageUrl="/images/exemple.png"
                 description="Construction d'une école pour des enfants défavorisés"
                 tag="Construire une école"
-                status="En cours"  // Ajout du statut
+                status="En cours"
               />
 
               <ProjectCard
@@ -98,7 +111,7 @@ export default function SitePage() {
                 imageUrl="/images/Group1.png"
                 description="Construction d'une école pour des enfants défavorisés"
                 tag="Construire une école"
-                status="En cours"  // Ajout du statut
+                status="En cours"
               />
 
               <ProjectCard
@@ -114,7 +127,7 @@ export default function SitePage() {
                 imageUrl="/images/exemple.png"
                 description="Construction d'une école pour des enfants défavorisés"
                 tag="Construire une école"
-                status="En cours"  // Ajout du statut
+                status="En cours"
               />
 
               {/* Ajout des deux images superposées, avec largeur de 70% */}

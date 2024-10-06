@@ -105,11 +105,8 @@ export default function ProjectCard({
         </div>
 
         {/* Bouton "Faire un don" avec onClick */}
-        <Button
-          onClick={handleOpenModal}
-          className="bg-black text-white px-4 py-2 rounded-full w-full hover:bg-gray-800 transition-colors border-2 border-gradient-to-r from-gray-400 to-gray-800"
-        >
-          Faire un don
+        <Button className="bg-black text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors border-2 border-transparent hover:border-purple-500">
+              Faire un don
         </Button>
 
         {/* Modal déclenché par onClick */}
@@ -132,10 +129,10 @@ export default function ProjectCard({
             {recentDonors.map((donor, index) => (
               <li key={index}>{donor}</li>
             ))}
-          </ul>
+          </ul> 
 
           {/* Lien vers les détails */}
-          <a href="/details" className="text-blue-600 hover:underline mt-2 inline-block">
+          <a href="/details" className="black hover:underline mt-2 inline-block">
             Voir détails de la page
           </a>
         </div>

@@ -55,7 +55,7 @@ export default function Header() {
           Nous rejoindre
         </a>
         <a href="projectpage" style={navLinkStyles}>
-          Notre projet
+          Nos projet
         </a>
       </nav>
 

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from './Button';
 
 interface CreateCompanyFormProps {
   onSubmit: (data: { companyName: string; companySiren: string; companyAddress: string }) => void;
@@ -56,9 +57,9 @@ export default function CreateCompanyForm({ onSubmit }: CreateCompanyFormProps) 
         />
       </div>
 
-      <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
-        Créer l'entreprise
-      </button>
+      <Button className="bg-black text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors border-2 border-transparent hover:border-purple-500">
+              enregistrer l'entreprise
+      </Button>
     </form>
   );
 }
