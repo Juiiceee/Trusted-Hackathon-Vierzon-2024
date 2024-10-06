@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import { Button } from './Button';
 import { contractAddressFactory, contractABIFactory } from '../constants/factory';
 import { useAccount, useReadContract, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 
@@ -68,9 +69,9 @@ export default function CreateCompanyForm() {
 				/>
 			</div>
 
-			<button type="submit" onClick={putNumber} className="px-4 py-2 bg-blue-500 text-white rounded">
-				Créer l'entreprise
-			</button>
+			<Button onClick={putNumber} className="bg-black text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors border-2 border-transparent hover:border-purple-500">
+				      enregistrer l'entreprise
+			</Button>
 		</div>
 	);
 }
