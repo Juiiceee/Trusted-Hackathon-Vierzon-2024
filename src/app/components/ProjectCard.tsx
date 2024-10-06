@@ -93,7 +93,7 @@ export default function ProjectCard({
         {/* Total des dons */}
         <div className="flex items-center mb-4">
           <Image src="/images/ava.png" alt="AVAX Logo" width={24} height={24} />
-          <p className="ml-2 font-semibold">{donationAmount} AVAX</p>
+          <p className="ml-2 font-semibold">{raised} AVAX</p>
           <p className="ml-2 text-gray-500">({donationValue})</p>
         </div>
 
