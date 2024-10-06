@@ -1,20 +1,8 @@
 import React from "react";
+import Image from 'next/image'; // Si tu utilises Next.js
 import Connect from "../components/Connect"; // Assurez-vous que le chemin est correct
 
 export default function Header() {
-  const logoStyles = {
-    fontFamily: "Poppins, sans-serif",
-    fontSize: "40px",
-    fontWeight: 800,
-    lineHeight: "20px",
-    letterSpacing: "-0.14px",
-    textAlign: "left" as const,
-    background:
-      "linear-gradient(81.31deg, #8636F8 2.26%, #F020B3 34.84%, #F8475E 67.42%, #FF9421 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-  };
-
   const navLinkStyles = {
     fontFamily: "Poppins, sans-serif",
     fontSize: "18px",
@@ -44,8 +32,14 @@ export default function Header() {
     >
       {/* Logo et bouton Home */}
       <div>
-        <a href="/" style={logoStyles}>
-          Trusted
+        <a href="/">
+          {/* Utilisation de l'image pour le logo */}
+          <Image
+            src="/images/Frame.png" // Chemin vers ton image dans le dossier public
+            alt="Logo Trusted"
+            width={150} // Ajuste la largeur selon tes besoins
+            height={50} // Ajuste la hauteur selon tes besoins
+          />
         </a>
       </div>
 
