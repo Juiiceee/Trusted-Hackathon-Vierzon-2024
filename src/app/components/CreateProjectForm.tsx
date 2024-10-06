@@ -140,7 +140,7 @@ export default function CreateProjectForm() {
 			</div>
 
 			<div>
-				<label className="block text-sm font-medium text-gray-700">Montant cible (en ETH)</label>
+				<label className="block text-sm font-medium text-gray-700">Montant cible (en TRU)</label>
 				<input
 					type="number"
 					value={projectAmount}

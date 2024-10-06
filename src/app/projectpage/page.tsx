@@ -124,8 +124,8 @@ export default function DonationMarketplace() {
 		args: [3],
 	});
 	const print = () => {
-		refetchTwo();
-		console.log(readTwo);
+		refetchOne();
+		console.log(readOne);
 	};
 
 	// Filtrer les projets par tag et par recherche
@@ -146,7 +146,7 @@ export default function DonationMarketplace() {
 			<div className="mb-8">
 				<SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 			</div>
-			<button onClick={print}>salut</button>
+			{/* <button onClick={print}>salut</button> */}
 
 			{/* Filtre par tag */}
 			<div className="mb-8">
