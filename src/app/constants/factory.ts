@@ -4,40 +4,6 @@ export const contractABIFactory = [
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "SIRENToCompagny",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "CompagnyName",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "CompagnySIREN",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "RequestAmount",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "CompagnyAddress",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
 				"name": "_SIREN",
 				"type": "uint256"
 			},
@@ -95,6 +61,11 @@ export const contractABIFactory = [
 			{
 				"internalType": "string",
 				"name": "_ProjectQuote",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ProjectImage",
 				"type": "string"
 			},
 			{
@@ -165,6 +136,11 @@ export const contractABIFactory = [
 			{
 				"internalType": "string",
 				"name": "ProjectQuote",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "ProjectImage",
 				"type": "string"
 			},
 			{
@@ -254,6 +230,40 @@ export const contractABIFactory = [
 			{
 				"internalType": "contract RequestDonation",
 				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "SIRENToCompagny",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "CompagnyName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "CompagnySIREN",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "RequestAmount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "CompagnyAddress",
 				"type": "address"
 			}
 		],

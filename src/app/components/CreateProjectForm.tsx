@@ -34,9 +34,10 @@ export default function CreateProjectForm() {
 			address: contractAddressFactory,
 			abi: contractABIFactory,
 			functionName: "createRequestDonation",
-			args: [projectName, projectDescription, ipfsDevis, projectAmount, limitDate, longitude, latitude],
+			args: [projectName, projectDescription, ipfsDevis, ipfsHash, projectAmount, limitDate, longitude, latitude],
 			account: address,
 		})
+		console.log(projectName, projectDescription, ipfsDevis, ipfsHash, projectAmount, limitDate, longitude, latitude);
 	}
 
 
