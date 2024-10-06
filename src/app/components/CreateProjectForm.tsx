@@ -103,7 +103,7 @@ export default function CreateProjectForm() {
 				},
 			});
 
-			const ipfsDevis = response.data.IpfsHash;
+			const ipfsDevis = response.data.ipfsHash;
 			setIpfsDevis("https://gateway.pinata.cloud/ipfs/" + ipfsDevis);
 			setSelectedFilePDF(null) // Mets à jour l'état avec le hash
 			setProcessing(false);
@@ -201,7 +201,7 @@ export default function CreateProjectForm() {
 					className="w-full p-2 border rounded"
 				/>
 				<span>{ipfsDevis}</span>
-				<Button onClick={handleUploadDevis} type='primary' disabled={!selectedFilePDF ? true : false} loading={processing && !ipfsHash ? true : false}>Upload to Pinata</Button>
+				<Button onClick={handleUploadDevis} type='primary' disabled={!selectedFilePDF ? true : false} loading={processing && !ipfsDevis ? true : false}>Upload to Pinata</Button>
 			</div>
 
 			<Button type="primary" onClick={putNumber} className="px-4 py-2 bg-green-500 text-white rounded mt-4">

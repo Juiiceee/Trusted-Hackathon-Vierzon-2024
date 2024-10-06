@@ -120,7 +120,7 @@ export default function DonationMarketplace() {
 	});
 	const print = () => {
 		refetchOne();
-		console.log(readOne[9]);
+		console.log(readOne);
 	};
 
 	// Filtrer les projets par tag et par recherche
@@ -176,9 +176,9 @@ export default function DonationMarketplace() {
 					nom={readOne[0]}
 					latitude= {readOne[9]} // Coordonnées géographiques au lieu de location
 					longitude={readOne[8]}
-					poolAddress="0x5353TEFHUO48653OHFHPOHDNL1HF1"
+					poolAddress={readOne[6]}
 					goal={readOne[3]}
-					raised={5}
+					raised={readOne[5]}
 					recentDonors={['0x5353TEFHUO48653OHFHPOHDNL1HF1']}
 					donationAmount={0.1}
 					donationValue="$242.49"
