@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useAccount, useWriteContract } from 'wagmi';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Button } from './Button'; // Si le bouton est aussi dans "components"
-
+import { contractABIDonation, contractAdressDonation } from '../constants/donation';
+import { parseEther } from 'ethers';
 interface ProjectCardProps {
   nom: string;
   latitude: string;
@@ -35,8 +37,21 @@ export default function ProjectCard({
   tag,
 }: ProjectCardProps) {
 	const [donationInput, setDonationInput] = useState('0.0');
+	const { address } = useAccount();
+	const { data: hash, isPending, error, writeContract } = useWriteContract();
+	const putNumber = async () => {
+		writeContract({
+			address: contractAdressDonation,
+			abi: contractABIDonation,
+			functionName: "donate",
+			overrides: {
+				value: parseEther(donationInput),
+			},
+		})
+	}
 
 	const handleDonation = () => {
+		putNumber();
 		console.log(`Don de ${donationInput} AVAX soumis`);
 	};
 
