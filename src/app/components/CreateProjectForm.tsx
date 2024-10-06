@@ -90,8 +90,6 @@ export default function CreateProjectForm() {
 		const formData = new FormData();
 		formData.append("file", selectedFilePDF); // Ajoute le fichier au FormData
 
-		// Options pour la requête à Pinata
-
 		const url = "https://api.pinata.cloud/pinning/pinFileToIPFS";
 
 		try {
@@ -104,7 +102,6 @@ export default function CreateProjectForm() {
 				},
 			});
 
-			// Récupère le hash IPFS du fichier uploadé
 			const ipfsDevis = response.data.IpfsHash;
 			setIpfsDevis("https://gateway.pinata.cloud/ipfs/" + ipfsDevis);
 			setSelectedFilePDF(null) // Mets à jour l'état avec le hash

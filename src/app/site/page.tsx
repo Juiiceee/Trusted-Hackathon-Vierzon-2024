@@ -34,8 +34,8 @@ const projects = [
     goal: 100, // Objectif réaliste en AVAX
     raised: 45, // Montant déjà collecté
     recentDonors: ['0x5353TEFHUO48653OHFHPOHDNL1HF1', '0x2A3B4C5D6E7F8901AB2C'],
-    donationAmount: 0.1,
-    donationValue: "$10.24", // Conversion réaliste en dollars
+    donationAmount: 60000,
+    donationValue: "$1,500,000", // Conversion réaliste en dollars
     imageUrl: "/images/exemple.png",
     title: "Construction d'une école pour enfants défavorisés",
     tag: "Construction",
