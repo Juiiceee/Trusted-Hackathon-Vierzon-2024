@@ -53,86 +53,86 @@ export default function SitePage() {
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 my-30">
 
-          <ProjectCard
-            nom="Association 1"
-            latitude="47.9975" // Coordonnées géographiques au lieu de location
-            longitude="0.1936"
-            poolAddress="0x5353TEFHUO48653OHFHPOHDNL1HF1"
-            goal={10}
-            raised={5}
-            recentDonors={['0x5353TEFHUO48653OHFHPOHDNL1HF1']}
-            donationAmount={0.1}
-            donationValue="$242.49"
-            imageUrl="/images/exemple.png"
-            description="Construction d'une école pour des enfants défavorisés"
-            tag="Construire une école"
-          />
-
-          <ProjectCard
-            nom="Association 2"
-            latitude="48.8566" // Coordonnées géographiques au lieu de location
-            longitude="2.3522"
-            poolAddress="0x98ERD45678EFD341R9874TER2349RHJKL"
-            goal={20}
-            raised={12}
-            recentDonors={['0x4564EFHUO4567EFDGFDRYDR7890LFJX']}
-            donationAmount={0.15}
-            donationValue="$364.99"
-            imageUrl="/images/exemple.png"
-            description="Construction d'une école pour des enfants défavorisés"
-            tag="Construire une école"
-          />
-
-          <ProjectCard
-            nom="Association 3"
-            latitude="48.8704" // Coordonnées géographiques au lieu de location
-            longitude="2.3318"
-            poolAddress="0x12FDERO8765EDDERF1234ERQWE456EFGH"
-            goal={15}
-            raised={7.5}
-            recentDonors={['0x98765RTERF12345678901']}
-            donationAmount={0.25}
-            donationValue="$605.99"
-            imageUrl="/images/Group1.png"
-            description="Construction d'une école pour des enfants défavorisés"
-            tag="Construire une école"
-          />
-
-          <ProjectCard
-            nom ="Association 4"
-            latitude="48.8683" // Coordonnées géographiques au lieu de location
-            longitude="2.3050"
-            poolAddress="0xA12FDERO45678EDDRRG456ETREWE234F"
-            goal={30}
-            raised={18}
-            recentDonors={['0x45HYUO768REWQEFRTYGFD']}
-            donationAmount={0.5}
-            donationValue="$1200.00"
-            imageUrl="/images/exemple.png"
-            description="Construction d'une école pour des enfants défavorisés"
-            tag="Construire une école"
-          />
-
-          {/* Ajout des deux images superposées, avec largeur de 70% */}
-          <div className="relative w-[70%] h-[400px] mx-auto">
-            <div className="absolute mt-11">
-              <Image
-                src="/images/Frame49.png" // Chemin vers ton image transparente
-                alt="Overlay image"
-                layout="fill"
-                objectFit="cover"
+              <ProjectCard
+                nom="Association 1"
+                latitude="47.9975"
+                longitude="0.1936"
+                poolAddress="0x5353TEFHUO48653OHFHPOHDNL1HF1"
+                goal={10}
+                raised={5}
+                recentDonors={['0x5353TEFHUO48653OHFHPOHDNL1HF1']}
+                donationAmount={0.1}
+                donationValue="$242.49"
+                imageUrl="/images/exemple.png"
+                description="Construction d'une école pour des enfants défavorisés"
+                tag="Construire une école"
+                status="En cours"  // Ajout du statut
               />
-            </div>
-          </div>
+
+              <ProjectCard
+                nom="Association 2"
+                latitude="48.8566"
+                longitude="2.3522"
+                poolAddress="0x98ERD45678EFD341R9874TER2349RHJKL"
+                goal={20}
+                raised={12}
+                recentDonors={['0x4564EFHUO4567EFDGFDRYDR7890LFJX']}
+                donationAmount={0.15}
+                donationValue="$364.99"
+                imageUrl="/images/exemple.png"
+                description="Construction d'une école pour des enfants défavorisés"
+                tag="Construire une école"
+                status="En cours"  // Ajout du statut
+              />
+
+              <ProjectCard
+                nom="Association 3"
+                latitude="48.8704"
+                longitude="2.3318"
+                poolAddress="0x12FDERO8765EDDERF1234ERQWE456EFGH"
+                goal={15}
+                raised={7.5}
+                recentDonors={['0x98765RTERF12345678901']}
+                donationAmount={0.25}
+                donationValue="$605.99"
+                imageUrl="/images/Group1.png"
+                description="Construction d'une école pour des enfants défavorisés"
+                tag="Construire une école"
+                status="En cours"  // Ajout du statut
+              />
+
+              <ProjectCard
+                nom ="Association 4"
+                latitude="48.8683"
+                longitude="2.3050"
+                poolAddress="0xA12FDERO45678EDDRRG456ETREWE234F"
+                goal={30}
+                raised={18}
+                recentDonors={['0x45HYUO768REWQEFRTYGFD']}
+                donationAmount={0.5}
+                donationValue="$1200.00"
+                imageUrl="/images/exemple.png"
+                description="Construction d'une école pour des enfants défavorisés"
+                tag="Construire une école"
+                status="En cours"  // Ajout du statut
+              />
+
+              {/* Ajout des deux images superposées, avec largeur de 70% */}
+              <div className="relative w-[70%] h-[400px] mx-auto">
+                <div className="absolute mt-11">
+                  <Image
+                    src="/images/Frame49.png" // Chemin vers ton image transparente
+                    alt="Overlay image"
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+              </div>
 
             </div>
           </div>
         </div>
       </section>
-
-        </div>
+    </div>
   );
 }
-
-
-

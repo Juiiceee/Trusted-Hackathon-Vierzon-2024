@@ -6,7 +6,6 @@ import SearchBar from "../components/SearchBar"; // Import du composant SearchBa
 
 // Simple Badge component for manual styles
 import { ReactNode, MouseEventHandler } from 'react';
-import { Description } from '@radix-ui/react-dialog';
 
 interface BadgeProps {
   children: ReactNode;
@@ -25,12 +24,12 @@ const Badge = ({ children, isActive, onClick }: BadgeProps) => (
   </span>
 );
 
-// Liste des projets (avec latitude et longitude au lieu de location)
+// Liste des projets (avec latitude et longitude en tant que chaînes)
 const projects = [
   {
     nom: "Les Enfants du Soleil",
-    latitude: 47.9975,  // Coordonnées réalistes
-    longitude: 0.1936,
+    latitude: "47.9975",  // Coordonnées réalistes
+    longitude: "0.1936",
     poolAddress: "0x5353TEFHUO48653OHFHPOHDNL1HF1",
     goal: 100, // Objectif réaliste en AVAX
     raised: 45, // Montant déjà collecté
@@ -40,11 +39,12 @@ const projects = [
     imageUrl: "/images/exemple.png",
     description: "Construction d'une école pour enfants défavorisés",
     tag: "Construction",
+    status: "En cours",
   },
   {
     nom: "Handicap International",
-    latitude: 48.8566,
-    longitude: 2.3522,
+    latitude: "48.8566",
+    longitude: "2.3522",
     poolAddress: "0x98ERD45678EFD341R9874TER2349RHJKL",
     goal: 200, // Objectif réaliste en AVAX
     raised: 120,
@@ -54,11 +54,12 @@ const projects = [
     imageUrl: "/images/exemple.png",
     description: "Rénovation d'un centre pour personnes handicapées",
     tag: "Rénovation",
+    status: "En cours",
   },
   {
     nom: "Banques Alimentaires",
-    latitude: 48.8704,
-    longitude: 2.3318,
+    latitude: "48.8704",
+    longitude: "2.3318",
     poolAddress: "0x12FDERO8765EDDERF1234ERQWE456EFGH",
     goal: 150,
     raised: 75,
@@ -68,11 +69,12 @@ const projects = [
     imageUrl: "/images/Group1.png",
     description: "Programme d'aide alimentaire pour les sans-abris",
     tag: "Aide alimentaire",
+    status: "En cours",
   },
   {
     nom: "Fondation pour l'Éducation",
-    latitude: 48.8683,
-    longitude: 2.3050,
+    latitude: "48.8683",
+    longitude: "2.3050",
     poolAddress: "0xA12FDERO45678EDDRRG456ETREWE234F",
     goal: 300,
     raised: 180,
@@ -82,6 +84,7 @@ const projects = [
     imageUrl: "/images/exemple.png",
     description: "Programme de bourses pour étudiants en difficulté",
     tag: "Scholarship",
+    status: "En cours",
   },
 ];
 
@@ -135,7 +138,7 @@ export default function DonationMarketplace() {
       {/* Affichage des cartes filtrées */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredProjects.map((project, index) => (
-          <ProjectCard key={index} {...project} latitude={project.latitude.toString()} longitude={project.longitude.toString()} />
+          <ProjectCard key={index} {...project} />
         ))}
       </div>
 
