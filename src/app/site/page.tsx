@@ -1,147 +1,138 @@
-'use client';
+import Image from 'next/image';
+import { Button } from "../components/Button";
+import ProjectCard from '../components/ProjectCard'; 
 
-import { useState } from 'react';
-import ProjectCard from "../components/ProjectCard"; // Import du composant ProjectCard
-import SearchBar from "../components/SearchBar"; // Import du composant SearchBar
-
-// Simple Badge component for manual styles
-import { ReactNode, MouseEventHandler } from 'react';
-
-interface BadgeProps {
-  children: ReactNode;
-  isActive: boolean;
-  onClick: MouseEventHandler<HTMLSpanElement>;
-}
-
-const Badge = ({ children, isActive, onClick }: BadgeProps) => (
-  <span
-    onClick={onClick}
-    className={`cursor-pointer px-3 py-1 rounded-full text-sm font-semibold ${
-      isActive ? 'bg-purple-500 text-white' : 'bg-gray-200 text-gray-800'
-    }`}
-  >
-    {children}
-  </span>
-);
-
-// Liste des projets (avec latitude et longitude au lieu de location)
-const projects = [
-  {
-    association: "Les Enfants du Soleil",
-    latitude: 47.9975,  // Coordonnées réalistes
-    longitude: 0.1936,
-    poolAddress: "0x5353TEFHUO48653OHFHPOHDNL1HF1",
-    goal: 100, // Objectif réaliste en AVAX
-    raised: 45, // Montant déjà collecté
-    recentDonors: ['0x5353TEFHUO48653OHFHPOHDNL1HF1', '0x2A3B4C5D6E7F8901AB2C'],
-    donationAmount: 0.1,
-    donationValue: "$10.24", // Conversion réaliste en dollars
-    imageUrl: "/images/exemple.png",
-    title: "Construction d'une école pour enfants défavorisés",
-    tag: "Construction",
-  },
-  {
-    association: "Handicap International",
-    latitude: 48.8566,
-    longitude: 2.3522,
-    poolAddress: "0x98ERD45678EFD341R9874TER2349RHJKL",
-    goal: 200, // Objectif réaliste en AVAX
-    raised: 120,
-    recentDonors: ['0x4564EFHUO4567EFDGFDRYDR7890LFJX', '0x1234567890ABCDEF1234'],
-    donationAmount: 0.15,
-    donationValue: "$15.36",
-    imageUrl: "/images/exemple.png",
-    title: "Rénovation d'un centre pour personnes handicapées",
-    tag: "Rénovation",
-  },
-  {
-    association: "Banques Alimentaires",
-    latitude: 48.8704,
-    longitude: 2.3318,
-    poolAddress: "0x12FDERO8765EDDERF1234ERQWE456EFGH",
-    goal: 150,
-    raised: 75,
-    recentDonors: ['0x98765RTERF12345678901', '0x5B6C7D8E9F1234567890'],
-    donationAmount: 0.25,
-    donationValue: "$25.60",
-    imageUrl: "/images/Group1.png",
-    title: "Programme d'aide alimentaire pour les sans-abris",
-    tag: "Aide alimentaire",
-  },
-  {
-    association: "Fondation pour l'Éducation",
-    latitude: 48.8683,
-    longitude: 2.3050,
-    poolAddress: "0xA12FDERO45678EDDRRG456ETREWE234F",
-    goal: 300,
-    raised: 180,
-    recentDonors: ['0x45HYUO768REWQEFRTYGFD', '0x1234ABCDE67890'],
-    donationAmount: 0.5,
-    donationValue: "$50.00",
-    imageUrl: "/images/exemple.png",
-    title: "Programme de bourses pour étudiants en difficulté",
-    tag: "Scholarship",
-  },
-];
-
-export default function DonationMarketplace() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedTag, setSelectedTag] = useState("");
-
-  // Filtrer les projets par tag et par recherche
-  const filteredProjects = projects.filter((project) =>
-    (selectedTag === "" || project.tag === selectedTag) &&
-    (project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.association.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
-
-  // Extraire les tags uniques des projets
-  const tags = Array.from(new Set(projects.map((project) => project.tag)));
-
+export default function SitePage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">Nos projets caritatifs</h1>
-      
-      {/* Barre de recherche */}
-      <div className="mb-8">
-        <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      </div>
-
-      {/* Filtre par tag */}
-      <div className="mb-8">
-        <div className="flex flex-wrap gap-2">
-          {/* Badge "Tous" pour réinitialiser le filtre */}
-          <Badge
-            isActive={selectedTag === ""}
-            onClick={() => setSelectedTag("")}
-          >
-            Tous
-          </Badge>
-
-          {/* Générer un badge pour chaque tag unique */}
-          {tags.map((tag) => (
-            <Badge
-              key={tag}
-              isActive={selectedTag === tag}
-              onClick={() => setSelectedTag(tag)}
-            >
-              {tag}
-            </Badge>
-          ))}
+    <div className="relative w-full min-h-screen overflow-hidden">
+      <section className="relative h-screen">
+        <div className="container mx-auto px-4 h-full flex items-center">
+          <div className="w-full md:w-1/2 space-y-6 z-10">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              La <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-orange-400">Transparence</span> 
+              <br />dans chaque donation
+            </h1>
+            <p className="text-3xl md:text-5xl font-bold leading-tight">
+              propulsée par la technologie blockchain
+            </p>
+            <Button className="bg-black text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition-colors border-2 border-transparent hover:border-purple-500">
+              Faire un don
+            </Button>
+            <div className="flex flex-wrap gap-2 mt-4">
+              {['Donations blockchain', 'Dons sécurisés', 'Impact social blockchain', 'Transparence des dons'].map((tag) => (
+                <span key={tag} className="bg-white bg-opacity-50 px-3 py-1 rounded-full text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+        <div className="absolute right-0 top-[332px] w-[1425px] h-[546px] z-0">
+          <Image
+            src="/images/Frame31.png"
+            alt="Background frame"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+        </div>
+        <div className="absolute right-[10%] lg:right-[10%] top-[20%] w-[500px] h-[471px] z-20">
+          <Image
+            src="/images/Group1.png"
+            alt="Smiling child"
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
+      </section>
 
-      {/* Affichage des cartes filtrées */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredProjects.map((project, index) => (
-          <ProjectCard nom={project.title} description={project.association} key={index} {...project} />
-        ))}
-      </div>
+      <section className="py-[1%] bg-white-100">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-[2%] text-center">Ils ont besoin de vous</h2>
+          <h2 className="text-3xl font-bold mb-[5%] text-center">Projets en cours</h2>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 my-30">
 
-      {/* Message si aucun projet ne correspond à la recherche ou au tag */}
-      {filteredProjects.length === 0 && (
-        <p className="text-center mt-8 text-lg">Aucun projet ne correspond à votre recherche.</p>
-      )}
-    </div>
+          <ProjectCard
+            nom="Association 1"
+            latitude="47.9975" // Coordonnées géographiques au lieu de location
+            longitude="0.1936"
+            poolAddress="0x5353TEFHUO48653OHFHPOHDNL1HF1"
+            goal={10}
+            raised={5}
+            recentDonors={['0x5353TEFHUO48653OHFHPOHDNL1HF1']}
+            donationAmount={0.1}
+            donationValue="$242.49"
+            imageUrl="/images/exemple.png"
+            description="Construction d'une école pour des enfants défavorisés"
+            tag="Construire une école"
+          />
+
+          <ProjectCard
+            nom="Association 2"
+            latitude="48.8566" // Coordonnées géographiques au lieu de location
+            longitude="2.3522"
+            poolAddress="0x98ERD45678EFD341R9874TER2349RHJKL"
+            goal={20}
+            raised={12}
+            recentDonors={['0x4564EFHUO4567EFDGFDRYDR7890LFJX']}
+            donationAmount={0.15}
+            donationValue="$364.99"
+            imageUrl="/images/exemple.png"
+            description="Construction d'une école pour des enfants défavorisés"
+            tag="Construire une école"
+          />
+
+          <ProjectCard
+            nom="Association 3"
+            latitude="48.8704" // Coordonnées géographiques au lieu de location
+            longitude="2.3318"
+            poolAddress="0x12FDERO8765EDDERF1234ERQWE456EFGH"
+            goal={15}
+            raised={7.5}
+            recentDonors={['0x98765RTERF12345678901']}
+            donationAmount={0.25}
+            donationValue="$605.99"
+            imageUrl="/images/Group1.png"
+            description="Construction d'une école pour des enfants défavorisés"
+            tag="Construire une école"
+          />
+
+          <ProjectCard
+            nom ="Association 4"
+            latitude="48.8683" // Coordonnées géographiques au lieu de location
+            longitude="2.3050"
+            poolAddress="0xA12FDERO45678EDDRRG456ETREWE234F"
+            goal={30}
+            raised={18}
+            recentDonors={['0x45HYUO768REWQEFRTYGFD']}
+            donationAmount={0.5}
+            donationValue="$1200.00"
+            imageUrl="/images/exemple.png"
+            description="Construction d'une école pour des enfants défavorisés"
+            tag="Construire une école"
+          />
+
+          {/* Ajout des deux images superposées, avec largeur de 70% */}
+          <div className="relative w-[70%] h-[400px] mx-auto">
+            <div className="absolute mt-11">
+              <Image
+                src="/images/Frame49.png" // Chemin vers ton image transparente
+                alt="Overlay image"
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+        </div>
   );
 }
+
+
+
