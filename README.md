@@ -48,4 +48,4 @@
 
 ---
 
-## Avec **Trusted**, vos dons ne sont plus une boîte noire. Vous savez exactement où va votre argent ! 🌍💧
+Avec **Trusted**, vos dons ne sont plus une boîte noire. Vous savez exactement où va votre argent ! 🌍💧
